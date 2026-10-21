@@ -84,7 +84,7 @@ export default function SubmissionsLogPage() {
             Scanned Submissions & Audit Log
           </h1>
           <p style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}>
-            Searchable statutory registry of all classified waste items and verified facility dispatches.
+            Searchable registry of all classified waste items and verified facility dispatches.
           </p>
         </div>
 

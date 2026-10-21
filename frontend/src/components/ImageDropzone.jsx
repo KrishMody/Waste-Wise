@@ -123,7 +123,7 @@ export default function ImageDropzone({ onScan, isScanning }) {
           AI Waste Intake & Optical Scan
         </h3>
         <p className="card-subtitle">
-          Upload an image, capture via camera, or select a sample waste stream to initiate statutory hazard analysis.
+          Upload an image, capture via camera, or select a sample waste stream to initiate hazard analysis.
         </p>
       </div>
 
@@ -338,7 +338,7 @@ export default function ImageDropzone({ onScan, isScanning }) {
           {isScanning ? (
             <>
               <RefreshCw size={16} className="spin" style={{ animation: "spin 1s linear infinite" }} />
-              Analyzing Statutory Hazard...
+              Analyzing Hazard...
             </>
           ) : (
             <>

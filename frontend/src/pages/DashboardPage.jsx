@@ -121,7 +121,7 @@ export default function DashboardPage({ onNavigateToScan, onNavigateToLog }) {
             Operational Command Dashboard
           </h1>
           <p style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}>
-            Real-time telemetry and statutory hazard segregation oversight across intake points.
+            Real-time telemetry and hazard segregation oversight across intake points.
           </p>
         </div>
 
@@ -175,7 +175,7 @@ export default function DashboardPage({ onNavigateToScan, onNavigateToLog }) {
               24-Hour Item Classification History
             </h3>
             <p style={{ fontSize: "0.8125rem", color: "var(--text-muted)", marginTop: "2px" }}>
-              Hourly distribution of scanned items by statutory hazard category (Local Time)
+              Hourly distribution of scanned items by hazard category (Local Time)
             </p>
           </div>
 

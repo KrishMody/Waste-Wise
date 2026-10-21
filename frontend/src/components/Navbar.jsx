@@ -39,7 +39,7 @@ export default function Navbar({ currentRoute, navigateTo, isAdminUnlocked, togg
                   marginTop: "-2px"
                 }}
               >
-                {isAdminUnlocked ? "Facility Administration" : "Statutory Segregation"}
+                {isAdminUnlocked ? "Facility Administration" : "E-Waste Segregation"}
               </span>
             </div>
           </div>

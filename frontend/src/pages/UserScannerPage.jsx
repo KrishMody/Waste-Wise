@@ -238,7 +238,7 @@ export default function UserScannerPage({ onNavigateToLog }) {
               {/* Statutory Hazard & Rationale */}
               <div style={{ marginBottom: "14px" }}>
                 <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)", textTransform: "uppercase", marginBottom: "4px" }}>
-                  Statutory Hazard Rationale:
+                  Hazard Rationale:
                 </div>
                 <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.5, backgroundColor: "var(--bg-subtle)", padding: "10px", borderRadius: "6px" }}>
                   {scanResult.hazard_rationale}

@@ -91,10 +91,10 @@ export default function SubmissionDrawer({ submission, onClose, onDelete }) {
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           <div>
             <label style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)", textTransform: "uppercase", display: "block", marginBottom: "4px" }}>
-              Statutory Hazard Rationale
+              Hazard Rationale
             </label>
             <p style={{ fontSize: "0.875rem", color: "var(--text-primary)", backgroundColor: "var(--bg-card)", border: "1px solid var(--border-color)", padding: "10px", borderRadius: "6px" }}>
-              {submission.hazard_rationale || "Evaluated under standard statutory classification directives."}
+              {submission.hazard_rationale || "Evaluated under standard classification directives."}
             </p>
           </div>
           <div>
