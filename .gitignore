@@ -62,7 +62,7 @@ Desktop.ini
 *.njsproj
 *.sln
 *.sw?
-
+*.ipynb
 # (Optional) Uncomment to exclude large ML model weights:
 # backend/model/*.pt
 # backend/model/*.onnx

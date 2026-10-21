@@ -153,28 +153,87 @@ export default function ImageDropzone({ onScan, isScanning }) {
         </div>
       </div>
 
-      {/* Camera Live View */}
-      {isCameraActive ? (
-        <div style={{ position: "relative", borderRadius: "12px", overflow: "hidden", backgroundColor: "#000", marginBottom: "16px", textAlign: "center" }}>
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            muted
-            style={{ width: "100%", maxHeight: "360px", objectFit: "cover", display: "block" }}
-          />
-          <div style={{ position: "absolute", bottom: "16px", left: 0, right: 0, display: "flex", justifyContent: "center", gap: "12px" }}>
-            <button type="button" onClick={capturePhoto} className="btn btn-primary" style={{ padding: "10px 20px" }}>
-              <Camera size={18} />
-              Capture Snapshot
-            </button>
-            <button type="button" onClick={stopCamera} className="btn btn-secondary" style={{ backgroundColor: "#ffffff" }}>
-              Cancel
-            </button>
+      {/* Camera Live View (Smooth Accordion) */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateRows: isCameraActive ? "1fr" : "0fr",
+          opacity: isCameraActive ? 1 : 0,
+          transition: "grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-bottom 0.35s ease",
+          marginBottom: isCameraActive ? "16px" : "0px"
+        }}
+      >
+        <div style={{ overflow: "hidden" }}>
+          <div
+            style={{
+              maxWidth: "460px",
+              margin: "0 auto",
+              position: "relative",
+              borderRadius: "12px",
+              overflow: "hidden",
+              backgroundColor: "#000",
+              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)"
+            }}
+          >
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              muted
+              style={{
+                width: "100%",
+                maxHeight: "320px",
+                objectFit: "cover",
+                display: "block"
+              }}
+            />
+
+            {/* Snapshot / Cancel Controls Overlay */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: "12px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                display: "flex",
+                gap: "10px",
+                zIndex: 10
+              }}
+            >
+              <button
+                type="button"
+                onClick={capturePhoto}
+                className="btn btn-primary"
+                style={{
+                  padding: "8px 16px",
+                  fontSize: "0.85rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px"
+                }}
+              >
+                <Camera size={15} />
+                Capture Snapshot
+              </button>
+              <button
+                type="button"
+                onClick={stopCamera}
+                className="btn btn-secondary"
+                style={{
+                  padding: "8px 14px",
+                  fontSize: "0.85rem",
+                  backgroundColor: "rgba(255, 255, 255, 0.9)"
+                }}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
-      ) : (
-        /* Drag and Drop Zone */
+      </div>
+
+      {/* Drag and Drop Zone */}
+      {!isCameraActive && (
         <div
           onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
           onDragLeave={() => setDragOver(false)}
@@ -291,4 +350,4 @@ export default function ImageDropzone({ onScan, isScanning }) {
       </div>
     </div>
   );
-} 
+}

@@ -53,7 +53,6 @@ export default function AnalysisPage() {
             Stream & Hazard Breakdown Analysis
           </h1>
           <p style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}>
-            Comprehensive statutory compliance breakdowns computed dynamically across all intake logs.
           </p>
         </div>
 
@@ -79,7 +78,7 @@ export default function AnalysisPage() {
             <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--hazard-imm-solid)", marginTop: "4px" }}>
               {kpis.high_risk_count}
             </div>
-            <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>Class I statutory items</span>
+            <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>Class I items</span>
           </div>
 
           <div className="card" style={{ padding: "16px" }}>
@@ -87,7 +86,7 @@ export default function AnalysisPage() {
             <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "var(--hazard-reg-solid)", marginTop: "4px" }}>
               {kpis.regulated_count}
             </div>
-            <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>Class II statutory items</span>
+            <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>Class II items</span>
           </div>
 
           <div className="card" style={{ padding: "16px" }}>
@@ -122,7 +121,7 @@ export default function AnalysisPage() {
             <div>
               <h3 className="card-title" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <PieChart size={18} color="var(--accent-primary)" />
-                Statutory Hazard Tier Breakdown
+                Hazard Tier Breakdown
               </h3>
               <p className="card-subtitle">Proportional distribution (Low Risk vs. Regulated vs. Immediate Hazard)</p>
             </div>

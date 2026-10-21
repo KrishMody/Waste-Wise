@@ -242,7 +242,7 @@ def get_kpis():
 
 def get_volume_rhythm_24h():
     """
-    Returns hour-by-hour intake volume for the past 24 hours converted to local time.
+    Returns hour-by-hour intake volume strictly for the past 24 hours converted to local time.
     """
     conn = get_db()
     cursor = conn.cursor()
@@ -254,8 +254,11 @@ def get_volume_rhythm_24h():
     rows = cursor.fetchall()
     conn.close()
 
+    # Timezone-aware local reference time and 24-hour cutoff
+    now_local = datetime.now().astimezone()
+    cutoff_24h = now_local - timedelta(hours=24)
+
     # Generate 24 hourly buckets ending at the current local hour
-    now_local = datetime.now()
     buckets = {}
     for i in range(23, -1, -1):
         slot_dt = now_local - timedelta(hours=i)
@@ -272,12 +275,18 @@ def get_volume_rhythm_24h():
         ts_str = row["timestamp"]
         tier = row["hazard_tier"]
         try:
-            # Parse ISO UTC timestamp
             if ts_str.endswith("Z"):
                 ts_str = ts_str[:-1] + "+00:00"
             dt_utc = datetime.fromisoformat(ts_str)
-            # Convert UTC to local system time
+            if dt_utc.tzinfo is None:
+                dt_utc = dt_utc.replace(tzinfo=timezone.utc)
+            
             dt_local = dt_utc.astimezone()
+
+            # Ignore submissions outside the actual 24-hour window
+            if dt_local < cutoff_24h or dt_local > now_local:
+                continue
+
             hour_key = dt_local.strftime("%H:00")
 
             if hour_key in buckets:

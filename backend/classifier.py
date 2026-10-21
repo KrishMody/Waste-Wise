@@ -3,8 +3,7 @@ import cv2
 import numpy as np
 import onnxruntime as ort
 
-MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "model", "best.onnx"))
-
+MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "model", "best.onnx"))
 CLASS_NAMES = [
     'Air-Conditioner', 'Bar-Phone', 'Battery', 'Blood-Pressure-Monitor', 'Boiler',
     'CRT-Monitor', 'CRT-TV', 'Calculator', 'Camera', 'Ceiling-Fan',
